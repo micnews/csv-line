@@ -21,5 +21,20 @@
   "bugs": {
     "url": "https://github.com/micnews/csv-line/issues"
   },
-  "homepage": "https://github.com/micnews/csv-line"
+  "homepage": "https://github.com/micnews/csv-line",
+  "testling": {
+    "files": "test.js",
+    "browsers": [
+      "ie/9..latest",
+      "firefox/17..latest",
+      "firefox/nightly",
+      "chrome/22..latest",
+      "chrome/canary",
+      "opera/12..latest",
+      "opera/next",
+      "safari/5.1..latest",
+      "ipad/6.0..latest",
+      "iphone/6.0..latest"
+    ]
+  }
 }
