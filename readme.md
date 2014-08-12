@@ -6,6 +6,8 @@ Create a line of escaped csv from an array
 
 [![NPM](https://nodei.co/npm-dl/csv-line.png)](https://nodei.co/npm/csv-line/)
 
+[![browser support](https://ci.testling.com/micnews/csv-line.png)](https://ci.testling.com/micnews/csv-line)
+
 ## Installation
 
 ```
