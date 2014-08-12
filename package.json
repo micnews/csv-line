@@ -10,5 +10,16 @@
   "license": "MIT",
   "devDependencies": {
     "tape": "^2.14.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/micnews/csv-line.git"
+  },
+  "keywords": [
+    "cvs"
+  ],
+  "bugs": {
+    "url": "https://github.com/micnews/csv-line/issues"
+  },
+  "homepage": "https://github.com/micnews/csv-line"
 }
