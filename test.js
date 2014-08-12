@@ -1,7 +1,9 @@
-var assert = require('assert')
-  , csvLine = require('./csv-line')
+var csvLine = require('./csv-line')
 
-assert.equal(csvLine()([ 'foo', 'bar' ]), 'foo,bar')
-assert.equal(csvLine()([ '"hello"', ',beep']), '"""hello""",",beep"')
-assert.equal(csvLine({ separator: '\t'})([ 'foo', 'bar' ]), 'foo\tbar')
-assert.equal(csvLine({ escapeNewlines: true })([ '\nfoo\nbar\n' ]), '\\nfoo\\nbar\\n')
+require('tape')(function (t) {
+  t.equal(csvLine()([ 'foo', 'bar' ]), 'foo,bar')
+  t.equal(csvLine()([ '"hello"', ',beep']), '"""hello""",",beep"')
+  t.equal(csvLine({ separator: '\t'})([ 'foo', 'bar' ]), 'foo\tbar')
+  t.equal(csvLine({ escapeNewlines: true })([ '\nfoo\nbar\n' ]), '\\nfoo\\nbar\\n')
+  t.end()
+})

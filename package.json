@@ -4,8 +4,11 @@
   "description": "Create a line of escaped csv from an array",
   "main": "csv-line.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "tape test.js"
   },
   "author": "David Björklund <david.bjorklund@gmail.com> (http://davidbjorklund.com/)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "tape": "^2.14.0"
+  }
 }
