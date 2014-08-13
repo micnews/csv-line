@@ -4,11 +4,15 @@ module.exports = function (options) {
     , regexp = new RegExp('[' + separator + '\r\n"]')
     , escape = function (cell) {
 
-        if (escapeNewlines) {
-          cell = cell.replace(/\n/g, '\\n')
+        if (typeof(cell) === 'string') {
+          if (escapeNewlines) {
+            cell = cell.replace(/\n/g, '\\n')
+          }
+
+          cell = regexp.test(cell) ? '"' + cell.replace(/"/g, '""') + '"' : cell
         }
 
-        return regexp.test(cell) ? '"' + cell.replace(/"/g, '""') + '"' : cell
+        return cell
       }
 
   return function (array) {
