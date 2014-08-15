@@ -1,3 +1,13 @@
+var map = function (input, fn) {
+      var result = Array(input.length)
+
+      for(var i = 0; i < input.length; ++i) {
+        result[i] = fn(input[i])
+      }
+
+      return result
+    }
+
 module.exports = function (options) {
   var separator = options && options.separator ? options.separator : ','
     , escapeNewlines = options && options.escapeNewlines === true
@@ -16,6 +26,6 @@ module.exports = function (options) {
       }
 
   return function (array) {
-    return array.map(escape).join(separator)
+    return map(array, escape).join(separator)
   }
 }
