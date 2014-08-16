@@ -20,18 +20,21 @@ npm install csv-line
 
 ```javascript
 var csvLine = require('./csv-line')
-  , toCsv1 = csvLine()
-  , toCsv2 = csvLine({ separator: '*' })
 
-console.log(toCsv1([ '"hello"', 'I am a *', 'Girfriend in a ,' ]))
-console.log(toCsv2([ 'I am a *', 'Girfriend in a ,' ]))
+var encoded = csvLine.encode([ '"hello"', 'I am a *', 'Girfriend in a ,' ])
+
+//the encoded line
+console.log(encoded)
+
+//decode it again
+console.log(csvLine.decode(decoded))
 ```
 
 ### Output
 
 ```
 """hello""",I am a *,"Girfriend in a ,"
-"I am a *"*Girfriend in a ,
+[ '"hello"', 'I am a *', 'Girfriend in a ,' ]
 ```
 
 ## Licence
