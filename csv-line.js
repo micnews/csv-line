@@ -8,7 +8,7 @@ var map = function (input, fn) {
       return result
     }
 
-module.exports = function (options) {
+function createCSV (options, CSV) {
   var separator = options && options.separator ? options.separator : ','
     , escapeNewlines = options && options.escapeNewlines === true
     , regexp = new RegExp('[' + separator + '\r\n"]')
@@ -18,14 +18,38 @@ module.exports = function (options) {
           if (escapeNewlines) {
             cell = cell.replace(/\n/g, '\\n')
           }
-
           cell = regexp.test(cell) ? '"' + cell.replace(/"/g, '""') + '"' : cell
         }
 
         return cell
       }
+    , unescape = function (cell) {
+      //remove surrounding chars
+      return cell.replace(/^"/, '')
+        .replace(/"$/, '').replace(/""/g, '"')
+    }
 
-  return function (array) {
+  function encode (array) {
     return map(array, escape).join(separator)
   }
+
+  CSV = CSV || encode
+
+  CSV.encode = encode
+  CSV.decode = function (line) {
+    return line.split(/((?:(?:"[^"]*")|[^,])*)/)
+    .filter(function (e, i) {
+      return i % 2
+    })
+    .map(function (l, i) {
+      return l ? !isNaN(l) ? +l : unescape(l) : undefined
+    })
+  }
+
+  CSV.buffer = false
+  CSV.type = 'csv-line'
+
+  return CSV
 }
+
+module.exports = createCSV({escapeNewlines: true}, createCSV)
