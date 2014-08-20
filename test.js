@@ -25,16 +25,15 @@ tape('options', function (t) {
 })
 
 tape('encode', function (t) {
-  examples.forEach(function (ex) {
-    t.equal(csvLine.encode(ex.decoded), ex.encoded)
-  })
+  for(var i = 0; i < examples.length; ++i)
+    t.equal(csvLine.encode(examples[i].decoded), examples[i].encoded)
   t.end()
 })
 
-tape('decode', function (t) {
-  examples.forEach(function (ex) {
-    t.deepEqual(csvLine.decode(ex.encoded), ex.decoded)
-  })
-  t.end()
+if (!process.browser)
+  tape('decode', function (t) {
+    for(var i = 0; i < examples.length; ++i)
+      t.deepEqual(csvLine.decode(examples[i].encoded), examples[i].decoded)
+    t.end()
 
 })

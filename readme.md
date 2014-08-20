@@ -1,4 +1,4 @@
-# csv-line
+# csv-line[![build status](https://secure.travis-ci.org/micnews/csv-line.svg)](http://travis-ci.org/micnews/csv-line)
 
 Create a line of escaped csv from an array
 
@@ -6,13 +6,17 @@ Create a line of escaped csv from an array
 
 [![NPM](https://nodei.co/npm-dl/csv-line.png)](https://nodei.co/npm/csv-line/)
 
-[![browser support](https://ci.testling.com/micnews/csv-line.png)](https://ci.testling.com/micnews/csv-line)
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/micnews-csv-line.svg)](https://saucelabs.com/u/micnews-csv-line)
 
 ## Installation
 
 ```
 npm install csv-line
 ```
+
+## Browserify support
+
+Currently only supported in browserify is `csvLine.encode`, decode _should_ work in most modern browsers, but is not working in IE8.
 
 ## Example
 
