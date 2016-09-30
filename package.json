@@ -9,7 +9,7 @@
   "author": "David Björklund <david.bjorklund@gmail.com> (http://davidbjorklund.com/)",
   "license": "MIT",
   "devDependencies": {
-    "tape": "^2.14.0",
+    "tape": "^4.6.2",
     "zuul": "^1.10.1"
   },
   "repository": {
